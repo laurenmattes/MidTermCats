@@ -11,6 +11,11 @@ public class Library {
 
 	}
 
+	public Library(String author) {
+		super();
+		this.author = author;
+	}
+
 	public Library(String title, String author) {
 		super();
 		this.title = title;

@@ -15,6 +15,8 @@ public class LibraryApp {
 		String userContinue = "n";
 		int menuChoice;
 
+		List<Library> listOfBooks = LibraryTextFile.readFile();
+
 		System.out.println("Welcome to the Cat's Library\n");
 
 		while (userContinue.equalsIgnoreCase("n")) {
@@ -25,7 +27,6 @@ public class LibraryApp {
 
 			if (menuChoice == 1) {
 				System.out.println("");
-				List<Library> listOfBooks = LibraryTextFile.readFile();
 
 				for (Library c : listOfBooks) {
 					System.out.println(c);
@@ -33,6 +34,10 @@ public class LibraryApp {
 			}
 
 			if (menuChoice == 2) {
+
+				for (Library c : listOfBooks) {
+					System.out.println(c.getAuthor());
+				}
 
 			}
 			if (menuChoice == 3) {
