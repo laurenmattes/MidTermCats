@@ -27,7 +27,7 @@ public class LibraryApp {
 				System.out.println("");
 
 				for (Library c : listOfBooks) {
-					System.out.println(c);
+					System.out.println(c.getTitle() + " by " + c.getAuthor());
 				}
 				selection = Validator.getInt(scnr, "Enter number to check book out");
 				System.out.println("due back");
@@ -95,7 +95,7 @@ public class LibraryApp {
 			userContinue = Validator.getString(scnr, "\nLeave the library? (y/n):");
 
 		}
-		System.out.println("Come back anytime.");
+		System.out.println("\nCome back anytime.");
 
 	}
 
