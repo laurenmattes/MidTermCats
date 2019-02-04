@@ -1,58 +1,58 @@
 
 public class Library {
 
-	private String Title;
-	private String Author;
-	private int Status;
-	private boolean dueDate;
+	private String title;
+	private String author;
+	private int status;
+	private String dueDate;
 
 	public Library() {
 
 	}
 
-	public Library(String title, String author, int status, boolean dueDate) {
+	public Library(String title, String author, int status, String dueDate) {
 		super();
-		Title = title;
-		Author = author;
-		Status = status;
+		this.title = title;
+		this.author = author;
+		this.status = status;
 		this.dueDate = dueDate;
 	}
 
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 	public String getAuthor() {
-		return Author;
+		return author;
 	}
 
 	public void setAuthor(String author) {
-		Author = author;
+		this.author = author;
 	}
 
 	public int getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(int status) {
-		Status = status;
+		this.status = status;
 	}
 
-	public boolean isDueDate() {
+	public String isDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(boolean dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Library [Title=" + Title + ", Author=" + Author + ", Status=" + Status + ", dueDate=" + dueDate + "]";
+		return (title + " by: " + author + "Status:" + status + " Due back:" + dueDate);
 	}
 
 }
