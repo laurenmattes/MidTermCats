@@ -39,16 +39,57 @@ public class LibraryApp {
 					System.out.println(c.getAuthor());
 				}
 
+				String choice = Validator.getString(scnr, "Type an author's first name:");
+				choice.toLowerCase();
+
+				if (choice.startsWith("j")) {
+
+					System.out.println(listOfBooks.get(0) + "\n" + listOfBooks.get(1));
+				}
+				if (choice.startsWith("h")) {
+
+					System.out.println(listOfBooks.get(2) + "\n" + listOfBooks.get(3));
+				}
+				if (choice.startsWith("e")) {
+
+					System.out.println(listOfBooks.get(4) + "\n" + listOfBooks.get(5));
+
+				}
+				if (choice.startsWith("c")) {
+
+					System.out.println(listOfBooks.get(6) + "\n" + listOfBooks.get(7));
+
+				}
+				if (choice.startsWith("d")) {
+
+					System.out.println(listOfBooks.get(8) + "\n" + listOfBooks.get(9));
+
+				}
+				if (choice.startsWith("s")) {
+
+					System.out.println(listOfBooks.get(10) + "\n" + listOfBooks.get(11));
+
+				}
 			}
+
 			if (menuChoice == 3) {
+
+				String choice2 = Validator.getString(scnr, "Enter a title keyword.");
+				choice2.toLowerCase();
+
+				for (int i = 0; i < listOfBooks.size(); i++) {
+
+					if (listOfBooks.get(i).getTitle().toLowerCase().contains(choice2)) {
+						System.out.println(listOfBooks.get(i).getTitle());
+					}
+				}
 
 			}
 
 			userContinue = Validator.getString(scnr, "Leave the library? (y/n):");
 
-			System.out.println("Come back anytime.");
-
 		}
+		System.out.println("Come back anytime.");
 
 	}
 
