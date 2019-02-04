@@ -15,8 +15,6 @@ public class Library {
 		super();
 		this.title = title;
 		this.author = author;
-		this.status = status;
-		this.dueDate = dueDate;
 	}
 
 	public String getTitle() {
@@ -44,7 +42,7 @@ public class Library {
 	}
 
 	public Date isDueDate(Date dueDate) {
-		return dueDate ;
+		return dueDate;
 	}
 
 	public void setDueDate(Date dueDate) {

@@ -13,7 +13,7 @@ public class LibraryApp {
 		String userContinue = "y";
 		int menuChoice;
 
-		System.out.println("Welcome to the Cat's Libray\n");
+		System.out.println("Welcome to the Cat's Library\n");
 		printMenu();
 
 		while (userContinue.equalsIgnoreCase("y")) {
