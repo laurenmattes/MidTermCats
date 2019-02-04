@@ -1,16 +1,17 @@
+import java.util.Date;
 
 public class Library {
 
 	private String title;
 	private String author;
 	private int status;
-	private String dueDate;
+	private Date dueDate;
 
 	public Library() {
 
 	}
 
-	public Library(String title, String author, int status, String dueDate) {
+	public Library(String title, String author) {
 		super();
 		this.title = title;
 		this.author = author;
@@ -42,17 +43,17 @@ public class Library {
 		this.status = status;
 	}
 
-	public String isDueDate() {
-		return dueDate;
+	public Date isDueDate(Date dueDate) {
+		return dueDate ;
 	}
 
-	public void setDueDate(String dueDate) {
+	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
 	@Override
 	public String toString() {
-		return (title + " by: " + author + "Status:" + status + " Due back:" + dueDate);
+		return (title + " by: " + author);
 	}
 
 }
