@@ -10,19 +10,25 @@ public class LibraryApp {
 		String author;
 		String status;
 		Date dueDate;
-		String userContinue = "y";
+		String userContinue = "n";
 		int menuChoice;
 
 		System.out.println("Welcome to the Cat's Library\n");
 		printMenu();
 
-		while (userContinue.equalsIgnoreCase("y")) {
+		while (userContinue.equalsIgnoreCase("n")) {
+
+			System.out.println(printMenu());
+
+			userContinue = Validator.getString(scnr, "Leave the library? (y/n):");
 
 		}
 
 	}
 
-	private static void printMenu() {
+	private static String printMenu() {
+
+		return "1. Display entire list of books\n" + "2. Search by author\n" + "3. Search by title keyword";
 
 	}
 
