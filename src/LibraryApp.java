@@ -1,9 +1,11 @@
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class LibraryApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner scnr = new Scanner(System.in);
 
 		String title;
@@ -14,21 +16,34 @@ public class LibraryApp {
 		int menuChoice;
 
 		System.out.println("Welcome to the Cat's Library\n");
-		printMenu();
 
 		while (userContinue.equalsIgnoreCase("n")) {
 
-			System.out.println(printMenu());
+			menuChoice = Validator.getInt(scnr,
+					"1. Display entire list of books\n" + "2. Search by author\n" + "3. Search by title keyword\n", 1,
+					3);
+
+			if (menuChoice == 1) {
+				System.out.println("");
+				List<Library> listOfBooks = LibraryTextFile.readFile();
+
+				for (Library c : listOfBooks) {
+					System.out.println(c);
+				}
+			}
+
+			if (menuChoice == 2) {
+
+			}
+			if (menuChoice == 3) {
+
+			}
 
 			userContinue = Validator.getString(scnr, "Leave the library? (y/n):");
 
+			System.out.println("Come back anytime.");
+
 		}
-
-	}
-
-	private static String printMenu() {
-
-		return "1. Display entire list of books\n" + "2. Search by author\n" + "3. Search by title keyword";
 
 	}
 
