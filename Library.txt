@@ -1,7 +1,7 @@
 1. On the Road,Jack Kerouac,On Shelf,00/00/0000
 2. The Dharma Bums,Jack Kerouac,On Shelf,Checked Out,02/07/2019
 3. Walden,Henry David Thoreau,On Shelf,00/00/0000
-4. The Maine Woods,Henry David Thoreau,On Shelf.00/00/0000
+4. The Maine Woods,Henry David Thoreau,On Shelf,00/00/0000
 5. Green Hills of Africa,Ernest Hemmingway,On Shelf,00/00/0000
 6. The Dangerous Summer,Ernest Hemmingway,On Shelf,00/00/0000
 7. No Country for Old Men,Cormac McCarthy,Checked Out,02/08/2019

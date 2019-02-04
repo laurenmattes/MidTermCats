@@ -27,7 +27,7 @@ public class LibraryTextFile {
 
 		for (String line : lines) {
 			String[] parts = line.split(",");
-			Library c = new Library(parts[0], (parts[1]), (parts[2]), (parts[3]));
+			Library c = new Library(parts[0], parts[1], parts[2], parts[3]);
 			library.add(c);
 		}
 		return library;

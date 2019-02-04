@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,7 +7,6 @@ public class LibraryApp {
 	public static void main(String[] args) throws IOException {
 		Scanner scnr = new Scanner(System.in);
 
-		
 		String userContinue = "n";
 		int menuChoice;
 		int selection = 0;
@@ -20,7 +18,7 @@ public class LibraryApp {
 		while (userContinue.equalsIgnoreCase("n")) {
 
 			menuChoice = Validator.getInt(scnr,
-					"1. Display entire list of books\n " + "2. Search by author\n" + "3. Search by title keyword\n", 1,
+					"1. Display entire list of books\n" + "2. Search by author\n" + "3. Search by title keyword\n", 1,
 					3);
 
 			if (menuChoice == 1) {
@@ -69,7 +67,6 @@ public class LibraryApp {
 				if (choice.startsWith("s")) {
 
 					System.out.println(listOfBooks.get(10) + "\n" + listOfBooks.get(11));
-					
 
 				}
 				selection = Validator.getInt(scnr, "Enter number to check book out");
@@ -88,7 +85,8 @@ public class LibraryApp {
 					}
 				}
 				selection = Validator.getInt(scnr, "Enter number to check book out");
-				System.out.println(Validator.getStringMatchingRegex(scnr, "The due date:", "[0-9]{2}[/][0-9]{2}[/][0-9]{4}"));
+				System.out.println(
+						Validator.getStringMatchingRegex(scnr, "The due date:", "[0-9]{2}[/][0-9]{2}[/][0-9]{4}"));
 
 			}
 
