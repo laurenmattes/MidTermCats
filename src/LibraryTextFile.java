@@ -2,7 +2,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LibraryTextFile {
@@ -31,6 +33,16 @@ public class LibraryTextFile {
 			library.add(c);
 		}
 		return library;
+
+	}
+
+	private static void rewriteFile() throws IOException {
+		if (Files.notExists(filePath)) {
+			Files.createFile(filePath);
+		}
+
+		List<String> itemsToAdd = Arrays.asList("Carrots", "Beets", "Mushrooms", "Onions");
+		Files.write(filePath, itemsToAdd, StandardOpenOption.TRUNCATE_EXISTING);
 
 	}
 

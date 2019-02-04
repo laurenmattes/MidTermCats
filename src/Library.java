@@ -48,7 +48,7 @@ public class Library {
 		this.status = status;
 	}
 
-	public String isDueDate(String dueDate) {
+	public String getDueDate() {
 		return dueDate;
 	}
 
@@ -58,7 +58,7 @@ public class Library {
 
 	@Override
 	public String toString() {
-		return (title + " by: " + author);
+		return (title + " by: " + author + "due back: " + dueDate);
 	}
 
 }
