@@ -1,11 +1,10 @@
-import java.util.Date;
 
 public class Library {
 
 	private String title;
 	private String author;
-	private int status;
-	private Date dueDate;
+	private String status;
+	private String dueDate;
 
 	public Library() {
 
@@ -13,13 +12,15 @@ public class Library {
 
 	public Library(String author) {
 		super();
-		this.author = author;
+
 	}
 
-	public Library(String title, String author) {
+	public Library(String title, String author, String status, String dueDate) {
 		super();
 		this.title = title;
 		this.author = author;
+		this.status = status;
+		this.dueDate = dueDate;
 	}
 
 	public String getTitle() {
@@ -38,19 +39,19 @@ public class Library {
 		this.author = author;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public Date isDueDate(Date dueDate) {
+	public String isDueDate(String dueDate) {
 		return dueDate;
 	}
 
-	public void setDueDate(Date dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 
