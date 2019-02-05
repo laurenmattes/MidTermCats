@@ -1,8 +1,10 @@
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class LibraryApp {
 
@@ -12,10 +14,16 @@ public class LibraryApp {
 		String userContinue = "n";
 		int menuChoice;
 		int selection = 0;
+
 		String author = null;
 		String title = null;
 		String status = "On Shelf";
 		String dueDate = "0";
+
+		int sum= 0;
+
+	
+
 
 		System.out.println("Welcome to the Cat's Library\n");
 
@@ -26,10 +34,9 @@ public class LibraryApp {
 					+ "3. Search by title keyword\n" + "4. Add a book to the Library.", 1, 4);
 
 			if (menuChoice == 1) {
-				System.out.println("");
 
 				for (Library c : listOfBooks) {
-					System.out.println(c.getTitle() + " by " + c.getAuthor());
+					System.out.println(c.getTitle() + " by: " + c.getAuthor());
 				}
 				selection = Validator.getInt(scnr, "\nEnter number to check book out:");
 
@@ -49,59 +56,51 @@ public class LibraryApp {
 
 			if (menuChoice == 2) {
 
+				String choice1 = Validator.getStringMatchingRegex(scnr, "Type an author's name", "[a-z]{0,100}");
+				choice1.toLowerCase();
+
 				for (int j = 0; j < listOfBooks.size(); j++) {
-					System.out.println(listOfBooks.get(j).getAuthor());
-					j++;
+					
+
+					while (listOfBooks.get(j).getAuthor().toLowerCase().contains(choice1)) {
+						for (int k = 0; k < listOfBooks.size(); k++) {
+							
+							if (sum == 2) {
+								break;
+								
+							}
+							if (listOfBooks.get(k).getAuthor().contains(listOfBooks.get(j).getAuthor())) {
+								System.out.println(listOfBooks.get(k).getTitle()); 
+								sum++;
+								
+							}
+						}
+					}
+					if (sum == 2) {
+						break;
+						
+					}
+					
+					
 				}
+					selection = Validator.getInt(scnr, "Enter number to check book out");
 
-				String choice = Validator.getString(scnr, "Type an author's first name:");
-				choice.toLowerCase();
+					if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
 
-				if (choice.startsWith("j")) {
+						System.out.println(listOfBooks.get(selection - 1).getTitle() + " is "
+								+ listOfBooks.get(selection - 1).getStatus());
+					} else {
 
-					System.out.println(listOfBooks.get(0).getTitle() + "\n" + listOfBooks.get(1).getTitle());
+						listOfBooks.get(selection - 1).setStatus("Checked Out");
+						System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
+								+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
+					}
 				}
-				if (choice.startsWith("h")) {
-
-					System.out.println(listOfBooks.get(2).getTitle() + "\n" + listOfBooks.get(3).getTitle());
-				}
-				if (choice.startsWith("e")) {
-
-					System.out.println(listOfBooks.get(4).getTitle() + "\n" + listOfBooks.get(5).getTitle());
-
-				}
-				if (choice.startsWith("c")) {
-
-					System.out.println(listOfBooks.get(6).getTitle() + "\n" + listOfBooks.get(7).getTitle());
-
-				}
-				if (choice.startsWith("d")) {
-
-					System.out.println(listOfBooks.get(8).getTitle() + "\n" + listOfBooks.get(9).getTitle());
-
-				}
-				if (choice.startsWith("s")) {
-
-					System.out.println(listOfBooks.get(10).getTitle() + "\n" + listOfBooks.get(11).getTitle());
-
-				}
-				selection = Validator.getInt(scnr, "Enter number to check book out");
-
-				if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
-
-					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is "
-							+ listOfBooks.get(selection - 1).getStatus());
-				} else {
-
-					listOfBooks.get(selection - 1).setStatus("Checked Out");
-					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
-							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
-				}
-			}
+			
 
 			if (menuChoice == 3) {
 
-				String choice2 = Validator.getString(scnr, "Enter a title keyword.");
+				String choice2 = Validator.getStringMatchingRegex(scnr, "Enter a title keyword.", "[a-z]{0,4805}");
 				choice2.toLowerCase();
 
 				for (int i = 0; i < listOfBooks.size(); i++) {
@@ -137,9 +136,9 @@ public class LibraryApp {
 			}
 
 			userContinue = Validator.getString(scnr, "\nLeave the library? (y/n):");
-
 		}
-		System.out.println("\nCome back anytime.");
+		
+		// System.out.println("\nCome back anytime.");
 
 	}
 
