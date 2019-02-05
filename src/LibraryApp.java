@@ -47,7 +47,7 @@ public class LibraryApp {
 
 				}
 
-				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
+				LibraryTextFile.trunk(listOfBooks);
 
 			}
 
@@ -88,7 +88,16 @@ public class LibraryApp {
 							+ listOfBooks.get(selection - 1).getDueDate());
 				}
 
-				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
+				LibraryTextFile.trunk(listOfBooks);
+
+//				title = listOfBooks.get(selection - 1).getTitle();
+//				author = listOfBooks.get(selection - 1).getAuthor();
+//				status = listOfBooks.get(selection - 1).getStatus();
+//				dueDate = listOfBooks.get(selection - 1).getDueDate();
+//
+//				Book c = new Book(title, author, status, dueDate);
+
+				// LibraryTextFile.appendToFile(c);
 			}
 
 			if (menuChoice == 3) {
@@ -116,7 +125,7 @@ public class LibraryApp {
 							+ listOfBooks.get(selection - 1).getDueDate());
 				}
 
-				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
+				LibraryTextFile.trunk(listOfBooks);
 
 			}
 			if (menuChoice == 4) {
@@ -150,7 +159,7 @@ public class LibraryApp {
 				listOfBooks.get(selection - 1).setStatus("On Shelf");
 				listOfBooks.get(selection - 1).setDueDate("0");
 
-				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
+				LibraryTextFile.trunk(listOfBooks);
 
 			}
 

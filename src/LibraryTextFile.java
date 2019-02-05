@@ -22,15 +22,24 @@ public class LibraryTextFile {
 		Files.write(filePath, lineList, StandardOpenOption.APPEND);
 	}
 
-	public static void trunk(Book book) throws IOException {
+	public static void trunk(List<Book> booklist) throws IOException {
 		if (Files.notExists(filePath)) {
 			Files.createFile(filePath);
 		}
 
-		String line = book.getTitle() + "," + book.getAuthor() + "," + book.getStatus() + "," + book.getDueDate();
-		List<String> lineList = Arrays.asList(line);
+		List<String> listOfLines = new ArrayList<>();
 
-		Files.write(filePath, lineList, StandardOpenOption.TRUNCATE_EXISTING);
+		for (Book b : booklist) {
+
+			String title = b.getTitle();
+			String author = b.getAuthor();
+			String status = b.getStatus();
+			String dueDate = b.getDueDate();
+
+			listOfLines.add(title + "," + author + "," + status + "," + dueDate);
+		}
+
+		Files.write(filePath, listOfLines, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
 	public static List<Book> readFile() throws IOException {
