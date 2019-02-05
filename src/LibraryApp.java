@@ -131,7 +131,7 @@ public class LibraryApp {
 
 				title = selection1;
 				author = selection2;
-				Library c1 = new Library(title, author, status, dueDate);
+				Library c1 = new Library(listOfBooks.size() + ". " + title, author, status, dueDate);
 				LibraryTextFile.appendToFile(c1);
 
 			}
