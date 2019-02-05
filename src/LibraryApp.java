@@ -42,16 +42,24 @@ public class LibraryApp {
 				} else {
 
 					listOfBooks.get(selection - 1).setStatus("Checked Out");
-
+					listOfBooks.get(selection - 1).setDueDate(rightNow());
 					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
-							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
+							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:"
+							+ listOfBooks.get(selection - 1).getDueDate());
 				}
+
+				title = listOfBooks.get(selection - 1).getTitle();
+				author = listOfBooks.get(selection - 1).getAuthor();
+				status = listOfBooks.get(selection - 1).getStatus();
+				dueDate = listOfBooks.get(selection - 1).getDueDate();
+				Library c = new Library(title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
 
 			}
 
 			if (menuChoice == 2) {
 
-				String choice1 = Validator.getStringMatchingRegex(scnr, "Type an author's name", "[a-z]{0,100}");
+				String choice1 = Validator.getStringMatchingRegex(scnr, "Type an author's name", "[a-zA-Z]{0,100}");
 				choice1.toLowerCase();
 
 				for (int j = 0; j < listOfBooks.size(); j++) {
@@ -80,19 +88,27 @@ public class LibraryApp {
 				} else {
 
 					listOfBooks.get(selection - 1).setStatus("Checked Out");
+					listOfBooks.get(selection - 1).setDueDate(rightNow());
 					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
-							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
+							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:"
+							+ listOfBooks.get(selection - 1).getDueDate());
 				}
+
+				title = listOfBooks.get(selection - 1).getTitle();
+				author = listOfBooks.get(selection - 1).getAuthor();
+				status = listOfBooks.get(selection - 1).getStatus();
+				dueDate = listOfBooks.get(selection - 1).getDueDate();
+				Library c = new Library(title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
 			}
 
 			if (menuChoice == 3) {
 
-				String choice2 = Validator.getStringMatchingRegex(scnr, "Enter a title keyword.", "[a-z]{0,4805}");
-				choice2.toLowerCase();
+				String choice2 = Validator.getStringMatchingRegex(scnr, "Enter a title keyword:", "[a-zA-Z]{0,4805}");
 
 				for (int i = 0; i < listOfBooks.size(); i++) {
 
-					if (listOfBooks.get(i).getTitle().toLowerCase().contains(choice2)) {
+					if (listOfBooks.get(i).getTitle().toLowerCase().contains(choice2.toLowerCase())) {
 						System.out.println(listOfBooks.get(i).getTitle());
 					}
 				}
@@ -105,9 +121,18 @@ public class LibraryApp {
 				} else {
 
 					listOfBooks.get(selection - 1).setStatus("Checked Out");
+					listOfBooks.get(selection - 1).setDueDate(rightNow());
 					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
-							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
+							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:"
+							+ listOfBooks.get(selection - 1).getDueDate());
 				}
+
+				title = listOfBooks.get(selection - 1).getTitle();
+				author = listOfBooks.get(selection - 1).getAuthor();
+				status = listOfBooks.get(selection - 1).getStatus();
+				dueDate = listOfBooks.get(selection - 1).getDueDate();
+				Library c = new Library(title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
 
 			}
 			if (menuChoice == 4) {
@@ -124,6 +149,8 @@ public class LibraryApp {
 
 			userContinue = Validator.getString(scnr, "\nLeave the library? (y/n):");
 		}
+
+		LibraryTextFile.readFile();
 
 		System.out.println("\nCome back anytime.");
 

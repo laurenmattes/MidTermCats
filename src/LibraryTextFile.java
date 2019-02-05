@@ -37,14 +37,4 @@ public class LibraryTextFile {
 
 	}
 
-	private static void rewriteFile() throws IOException {
-		if (Files.notExists(filePath)) {
-			Files.createFile(filePath);
-		}
-
-		List<String> itemsToAdd = Arrays.asList("Carrots", "Beets", "Mushrooms", "Onions");
-		Files.write(filePath, itemsToAdd, StandardOpenOption.TRUNCATE_EXISTING);
-
-	}
-
 }

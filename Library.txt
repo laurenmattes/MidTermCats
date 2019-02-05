@@ -10,4 +10,3 @@
 10. This is Water,David Foster Wallace,On Shelf,00/00/0000
 11. Where the Sidewalk Ends,Shel Silverstein,Checked Out,02/11/2019
 12. The Giving Tree,Shel Silverstein,On Shelf,00/00/0000
-13. lo,lauren,On Shelf,0
