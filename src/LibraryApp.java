@@ -12,12 +12,10 @@ public class LibraryApp {
 		String userContinue = "n";
 		int menuChoice;
 		int selection = 0;
-
-		String author = null;
-		String title = null;
-		String status = "On Shelf";
-		String dueDate = "0";
-
+		String author;
+		String title;
+		String status;
+		String dueDate;
 		int sum = 0;
 
 		System.out.println("Welcome to the Cat's Library\n");
@@ -26,7 +24,7 @@ public class LibraryApp {
 			List<Library> listOfBooks = LibraryTextFile.readFile();
 
 			menuChoice = Validator.getInt(scnr, "1. Display entire list of books\n" + "2. Search by author\n"
-					+ "3. Search by title keyword\n" + "4. Add a book to the Library.", 1, 4);
+					+ "3. Search by title keyword\n" + "4. Add a book to the Library.\n" + "5. Return a book.", 1, 5);
 
 			if (menuChoice == 1) {
 
@@ -100,6 +98,7 @@ public class LibraryApp {
 				dueDate = listOfBooks.get(selection - 1).getDueDate();
 				Library c = new Library(title, author, status, dueDate);
 				LibraryTextFile.appendToFile(c);
+
 			}
 
 			if (menuChoice == 3) {
@@ -136,22 +135,44 @@ public class LibraryApp {
 
 			}
 			if (menuChoice == 4) {
-				String selection1 = Validator.getString(scnr, "Enter a book title.");
-
-				String selection2 = Validator.getString(scnr, "Enter the books author.");
+				String selection1 = Validator.getString(scnr, "Enter a book title: ");
+				String selection2 = Validator.getString(scnr, "Enter the books author: ");
 
 				title = selection1;
 				author = selection2;
-				Library c1 = new Library(listOfBooks.size() + ". " + title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c1);
+				status = "On Shelf";
+				dueDate = "0";
+
+				Library c = new Library(listOfBooks.size() + 1 + ". " + title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
+			}
+
+			if (menuChoice == 5) {
+
+				for (int a = 0; a < listOfBooks.size(); a++) {
+
+					if (listOfBooks.get(a).getStatus().equals("Checked Out")) {
+						System.out.println(listOfBooks.get(a).getTitle() + " by: " + listOfBooks.get(a).getAuthor());
+					}
+				}
+
+				selection = Validator.getInt(scnr, "Which book are you returning?");
+
+				listOfBooks.get(selection - 1).setStatus("On Shelf");
+				listOfBooks.get(selection - 1).setDueDate("0");
+
+				title = listOfBooks.get(selection - 1).getTitle();
+				author = listOfBooks.get(selection - 1).getAuthor();
+				status = listOfBooks.get(selection - 1).getStatus();
+				dueDate = listOfBooks.get(selection - 1).getDueDate();
+				Library c = new Library(title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
 
 			}
 
 			userContinue = Validator.getString(scnr, "\nLeave the library? (y/n):");
+			LibraryTextFile.readFile();
 		}
-
-		LibraryTextFile.readFile();
-
 		System.out.println("\nCome back anytime.");
 
 	}
