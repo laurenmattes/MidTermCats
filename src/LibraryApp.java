@@ -1,10 +1,8 @@
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class LibraryApp {
 
@@ -20,10 +18,7 @@ public class LibraryApp {
 		String status = "On Shelf";
 		String dueDate = "0";
 
-		int sum= 0;
-
-	
-
+		int sum = 0;
 
 		System.out.println("Welcome to the Cat's Library\n");
 
@@ -60,43 +55,35 @@ public class LibraryApp {
 				choice1.toLowerCase();
 
 				for (int j = 0; j < listOfBooks.size(); j++) {
-					
 
 					while (listOfBooks.get(j).getAuthor().toLowerCase().contains(choice1)) {
 						for (int k = 0; k < listOfBooks.size(); k++) {
-							
+
 							if (sum == 2) {
 								break;
-								
 							}
 							if (listOfBooks.get(k).getAuthor().contains(listOfBooks.get(j).getAuthor())) {
-								System.out.println(listOfBooks.get(k).getTitle()); 
+								System.out.println(listOfBooks.get(k).getTitle());
 								sum++;
-								
 							}
 						}
-					}
-					if (sum == 2) {
 						break;
-						
-					}
-					
-					
-				}
-					selection = Validator.getInt(scnr, "Enter number to check book out");
-
-					if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
-
-						System.out.println(listOfBooks.get(selection - 1).getTitle() + " is "
-								+ listOfBooks.get(selection - 1).getStatus());
-					} else {
-
-						listOfBooks.get(selection - 1).setStatus("Checked Out");
-						System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
-								+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
 					}
 				}
-			
+
+				selection = Validator.getInt(scnr, "Enter number to check book out");
+
+				if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
+
+					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is "
+							+ listOfBooks.get(selection - 1).getStatus());
+				} else {
+
+					listOfBooks.get(selection - 1).setStatus("Checked Out");
+					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
+							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
+				}
+			}
 
 			if (menuChoice == 3) {
 
@@ -137,8 +124,8 @@ public class LibraryApp {
 
 			userContinue = Validator.getString(scnr, "\nLeave the library? (y/n):");
 		}
-		
-		// System.out.println("\nCome back anytime.");
+
+		System.out.println("\nCome back anytime.");
 
 	}
 
