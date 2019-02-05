@@ -21,14 +21,14 @@ public class LibraryApp {
 		System.out.println("Welcome to the Cat's Library\n");
 
 		while (userContinue.equalsIgnoreCase("n")) {
-			List<Library> listOfBooks = LibraryTextFile.readFile();
+			List<Book> listOfBooks = LibraryTextFile.readFile();
 
 			menuChoice = Validator.getInt(scnr, "1. Display entire list of books\n" + "2. Search by author\n"
 					+ "3. Search by title keyword\n" + "4. Add a book to the Library.\n" + "5. Return a book.", 1, 5);
 
 			if (menuChoice == 1) {
 
-				for (Library c : listOfBooks) {
+				for (Book c : listOfBooks) {
 					System.out.println(c.getTitle() + " by: " + c.getAuthor());
 				}
 				selection = Validator.getInt(scnr, "\nEnter number to check book out:");
@@ -44,13 +44,10 @@ public class LibraryApp {
 					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
 							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:"
 							+ listOfBooks.get(selection - 1).getDueDate());
+
 				}
 
-				title = listOfBooks.get(selection - 1).getTitle();
-				author = listOfBooks.get(selection - 1).getAuthor();
-				status = listOfBooks.get(selection - 1).getStatus();
-				dueDate = listOfBooks.get(selection - 1).getDueDate();
-				Library c = new Library(title, author, status, dueDate);
+				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
 
 			}
 
@@ -91,14 +88,7 @@ public class LibraryApp {
 							+ listOfBooks.get(selection - 1).getDueDate());
 				}
 
-				title = listOfBooks.get(selection - 1).getTitle();
-				author = listOfBooks.get(selection - 1).getAuthor();
-				status = listOfBooks.get(selection - 1).getStatus();
-				dueDate = listOfBooks.get(selection - 1).getDueDate();
-				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.reStatus();
-				LibraryTextFile.reDate();
-
+				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
 			}
 
 			if (menuChoice == 3) {
@@ -126,12 +116,7 @@ public class LibraryApp {
 							+ listOfBooks.get(selection - 1).getDueDate());
 				}
 
-				title = listOfBooks.get(selection - 1).getTitle();
-				author = listOfBooks.get(selection - 1).getAuthor();
-				status = listOfBooks.get(selection - 1).getStatus();
-				dueDate = listOfBooks.get(selection - 1).getDueDate();
-				Library c = new Library(title, author, status, dueDate);
-				// LibraryTextFile.appendToFile(c);
+				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
 
 			}
 			if (menuChoice == 4) {
@@ -143,8 +128,8 @@ public class LibraryApp {
 				status = "On Shelf";
 				dueDate = "0";
 
-				Library c = new Library(listOfBooks.size() + 1 + ". " + title, author, status, dueDate);
-				// LibraryTextFile.appendToFile(c);
+				Book c = new Book(listOfBooks.size() + 1 + ". " + title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c);
 			}
 
 			if (menuChoice == 5) {
@@ -165,13 +150,7 @@ public class LibraryApp {
 				listOfBooks.get(selection - 1).setStatus("On Shelf");
 				listOfBooks.get(selection - 1).setDueDate("0");
 
-				title = listOfBooks.get(selection - 1).getTitle();
-				author = listOfBooks.get(selection - 1).getAuthor();
-				status = listOfBooks.get(selection - 1).getStatus();
-				dueDate = listOfBooks.get(selection - 1).getDueDate();
-				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.rewrite();
-				// LibraryTextFile.appendToFile(c);
+				LibraryTextFile.trunk(listOfBooks.get(selection - 1));
 
 			}
 

@@ -1,22 +1,22 @@
 
-public class Library {
+public class Book {
 
 	private String title;
 	private String author;
 	private String status;
 	private String dueDate;
 
-	public Library() {
+	public Book() {
 
 	}
 
-	public Library(String author) {
+	public Book(String author) {
 		super();
 
 		this.author = author;
 	}
 
-	public Library(String title, String author, String status, String dueDate) {
+	public Book(String title, String author, String status, String dueDate) {
 		super();
 		this.title = title;
 		this.author = author;
