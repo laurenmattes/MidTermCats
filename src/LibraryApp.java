@@ -12,16 +12,18 @@ public class LibraryApp {
 		String userContinue = "n";
 		int menuChoice;
 		int selection = 0;
-
-		List<Library> listOfBooks = LibraryTextFile.readFile();
+		String author = null;
+		String title = null;
+		String status = "On Shelf";
+		String dueDate = "0";
 
 		System.out.println("Welcome to the Cat's Library\n");
 
 		while (userContinue.equalsIgnoreCase("n")) {
+			List<Library> listOfBooks = LibraryTextFile.readFile();
 
-			menuChoice = Validator.getInt(scnr,
-					"1. Display entire list of books\n" + "2. Search by author\n" + "3. Search by title keyword\n", 1,
-					3);
+			menuChoice = Validator.getInt(scnr, "1. Display entire list of books\n" + "2. Search by author\n"
+					+ "3. Search by title keyword\n" + "4. Add a book to the Library.", 1, 4);
 
 			if (menuChoice == 1) {
 				System.out.println("");
@@ -120,6 +122,17 @@ public class LibraryApp {
 					System.out.println(listOfBooks.get(selection - 1).getTitle() + " is now "
 							+ listOfBooks.get(selection - 1).getStatus() + " and is due back:" + rightNow());
 				}
+
+			}
+			if (menuChoice == 4) {
+				String selection1 = Validator.getString(scnr, "Enter a book title.");
+
+				String selection2 = Validator.getString(scnr, "Enter the books author.");
+
+				title = selection1;
+				author = selection2;
+				Library c1 = new Library(title, author, status, dueDate);
+				LibraryTextFile.appendToFile(c1);
 
 			}
 

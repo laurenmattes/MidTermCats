@@ -11,17 +11,18 @@ public class LibraryTextFile {
 
 	private static Path filePath = Paths.get("Library.txt");
 
-	/*
-	 * public static void appendToFile(Library library) throws IOException { if
-	 * (Files.notExists(filePath)) { Files.createFile(filePath); }
-	 * 
-	 * String library1 = library.getTitle() + ", " + library.getAuthor();
-	 * List<String> libraryList = Arrays.asList(library1);
-	 * 
-	 * Files.write(filePath, libraryList, StandardOpenOption.APPEND);
-	 * 
-	 * }
-	 */
+	public static void appendToFile(Library library) throws IOException {
+		if (Files.notExists(filePath)) {
+			Files.createFile(filePath);
+		}
+		String Library = library.getTitle() + "," + library.getAuthor() + "," + library.getStatus() + ","
+				+ library.getDueDate();
+
+		List<String> libraryList = Arrays.asList(Library);
+
+		Files.write(filePath, libraryList, StandardOpenOption.APPEND);
+
+	}
 
 	public static List<Library> readFile() throws IOException {
 		List<String> lines = Files.readAllLines(filePath);
