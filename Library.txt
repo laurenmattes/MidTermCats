@@ -1,12 +1,12 @@
-1. On the Road,Jack Kerouac,On Shelf,00/00/0000
+1. On the Road,Jack Kerouac,Checked Out,02/19/2019
 2. The Dharma Bums,Jack Kerouac,Checked Out,02/07/2019
-3. Walden,Henry David Thoreau,On Shelf,00/00/0000
-4. The Maine Woods,Henry David Thoreau,On Shelf,00/00/0000
-5. Green Hills of Africa,Ernest Hemmingway,On Shelf,00/00/0000
-6. The Dangerous Summer,Ernest Hemmingway,On Shelf,00/00/0000
+3. Walden,Henry David Thoreau,Checked Out,02/19/2019
+4. The Maine Woods,Henry David Thoreau,Checked Out,02/19/2019
+5. Green Hills of Africa,Ernest Hemmingway,Checked Out,02/19/2019
+6. The Dangerous Summer,Ernest Hemmingway,Checked Out,02/19/2019
 7. No Country for Old Men,Cormac McCarthy,Checked Out,02/08/2019
 8. All the Pretty Horses,Cormac McCarthy,Checked Out,02/09/2019
 9. Infinite Jest,David Foster Wallace,Checked Out,02/10/2019
-10. This is Water,David Foster Wallace,On Shelf,00/00/0000
+10. This is Water,David Foster Wallace,Checked Out,02/19/2019
 11. Where the Sidewalk Ends,Shel Silverstein,Checked Out,02/11/2019
-12. The Giving Tree,Shel Silverstein,On Shelf,00/00/0000
+12. The Giving Tree,Shel Silverstein,Checked Out,02/19/2019

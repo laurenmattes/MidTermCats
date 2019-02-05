@@ -51,7 +51,6 @@ public class LibraryApp {
 				status = listOfBooks.get(selection - 1).getStatus();
 				dueDate = listOfBooks.get(selection - 1).getDueDate();
 				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c);
 
 			}
 
@@ -97,7 +96,8 @@ public class LibraryApp {
 				status = listOfBooks.get(selection - 1).getStatus();
 				dueDate = listOfBooks.get(selection - 1).getDueDate();
 				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c);
+				LibraryTextFile.reStatus();
+				LibraryTextFile.reDate();
 
 			}
 
@@ -131,7 +131,7 @@ public class LibraryApp {
 				status = listOfBooks.get(selection - 1).getStatus();
 				dueDate = listOfBooks.get(selection - 1).getDueDate();
 				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c);
+				// LibraryTextFile.appendToFile(c);
 
 			}
 			if (menuChoice == 4) {
@@ -144,7 +144,7 @@ public class LibraryApp {
 				dueDate = "0";
 
 				Library c = new Library(listOfBooks.size() + 1 + ". " + title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c);
+				// LibraryTextFile.appendToFile(c);
 			}
 
 			if (menuChoice == 5) {
@@ -156,8 +156,12 @@ public class LibraryApp {
 					}
 				}
 
-				selection = Validator.getInt(scnr, "Which book are you returning?");
+				selection = Validator.getInt(scnr, "\nEnter a book to return: ");
 
+				if (!listOfBooks.get(selection - 1).getStatus().equals("Checked Out")) {
+					System.out.println("That book is available!");
+					continue;
+				}
 				listOfBooks.get(selection - 1).setStatus("On Shelf");
 				listOfBooks.get(selection - 1).setDueDate("0");
 
@@ -166,7 +170,8 @@ public class LibraryApp {
 				status = listOfBooks.get(selection - 1).getStatus();
 				dueDate = listOfBooks.get(selection - 1).getDueDate();
 				Library c = new Library(title, author, status, dueDate);
-				LibraryTextFile.appendToFile(c);
+				LibraryTextFile.rewrite();
+				// LibraryTextFile.appendToFile(c);
 
 			}
 
