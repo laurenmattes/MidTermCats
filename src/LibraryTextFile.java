@@ -11,6 +11,7 @@ public class LibraryTextFile {
 
 	private static Path filePath = Paths.get("Library.txt");
 
+	// append textfile
 	public static void appendToFile(Book book) throws IOException {
 		if (Files.notExists(filePath)) {
 			Files.createFile(filePath);
@@ -22,11 +23,11 @@ public class LibraryTextFile {
 		Files.write(filePath, lineList, StandardOpenOption.APPEND);
 	}
 
+	// truncate file with user changes
 	public static void trunk(List<Book> booklist) throws IOException {
 		if (Files.notExists(filePath)) {
 			Files.createFile(filePath);
 		}
-
 		List<String> listOfLines = new ArrayList<>();
 
 		for (Book b : booklist) {
@@ -38,10 +39,10 @@ public class LibraryTextFile {
 
 			listOfLines.add(title + "," + author + "," + status + "," + dueDate);
 		}
-
 		Files.write(filePath, listOfLines, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
+	// readfile and store in list
 	public static List<Book> readFile() throws IOException {
 		List<String> lines = Files.readAllLines(filePath);
 		List<Book> library = new ArrayList<>();
@@ -52,7 +53,5 @@ public class LibraryTextFile {
 			library.add(c);
 		}
 		return library;
-
 	}
-
 }

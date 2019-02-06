@@ -7,12 +7,10 @@ public class Book {
 	private String dueDate;
 
 	public Book() {
-
 	}
 
 	public Book(String author) {
 		super();
-
 		this.author = author;
 	}
 
@@ -58,7 +56,6 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return (title + " by: " + author + "due back: " + dueDate);
+		return (title + author + status + dueDate);
 	}
-
 }
