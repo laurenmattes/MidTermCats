@@ -37,7 +37,7 @@ public class LibraryApp {
 				}
 
 				// get user input
-				selection = Validator.getInt(scnr, "\nEnter the number to check out a book:");
+				selection = Validator.getInt(scnr, "\nEnter the number to check out a book:", 1, listOfBooks.size());
 
 				if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
 
@@ -81,7 +81,7 @@ public class LibraryApp {
 					}
 				}
 
-				selection = Validator.getInt(scnr, "\nEnter the number to check out a book: ");
+				selection = Validator.getInt(scnr, "\nEnter the number to check out a book: ", 1, listOfBooks.size());
 
 				if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
 
@@ -112,7 +112,7 @@ public class LibraryApp {
 					}
 				}
 
-				selection = Validator.getInt(scnr, "\nEnter the number to check out that book:");
+				selection = Validator.getInt(scnr, "\nEnter the number to check out that book:", 1, listOfBooks.size());
 
 				if (listOfBooks.get(selection - 1).getStatus().equalsIgnoreCase("Checked Out")) {
 
@@ -139,7 +139,7 @@ public class LibraryApp {
 				status = "On Shelf";
 				dueDate = "0";
 
-				Book c = new Book(listOfBooks.size() + 1 + title, author, status, dueDate);
+				Book c = new Book(listOfBooks.size() + 1 + ". " + title, author, status, dueDate);
 
 				// add to end of textfile
 				LibraryTextFile.appendToFile(c);
@@ -155,7 +155,7 @@ public class LibraryApp {
 					}
 				}
 
-				selection = Validator.getInt(scnr, "\nEnter a number to return that book: ");
+				selection = Validator.getInt(scnr, "\nEnter a number to return that book: ", 1, listOfBooks.size());
 
 				if (!listOfBooks.get(selection - 1).getStatus().equals("Checked Out")) {
 					System.out.println("That book is still available!\n");
