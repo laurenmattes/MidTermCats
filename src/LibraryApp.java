@@ -60,26 +60,28 @@ public class LibraryApp {
 
 			if (menuChoice == 2) {
 
-				String choice1 = Validator.getStringMatchingRegex(scnr, "Type an author's name", "[a-zA-Z]{0,100}");
+				do {
+					String choice1 = Validator.getStringMatchingRegex(scnr, "Type an author's name", "[a-zA-Z]{0,100}");
 
-				// print books matching user author
-				for (int j = 0; j < listOfBooks.size(); j++) {
+					// print books matching user author
+					for (int j = 0; j < listOfBooks.size(); j++) {
 
-					while (listOfBooks.get(j).getAuthor().toLowerCase().contains(choice1.toLowerCase())) {
+						while (listOfBooks.get(j).getAuthor().toLowerCase().contains(choice1.toLowerCase())) {
 
-						for (int k = 0; k < listOfBooks.size(); k++) {
+							for (int k = 0; k < listOfBooks.size(); k++) {
 
-							if (sum == 2) {
-								break;
+								if (sum == 2) {
+									break;
+								}
+								if (listOfBooks.get(k).getAuthor().contains(listOfBooks.get(j).getAuthor())) {
+									System.out.println(listOfBooks.get(k).getTitle());
+									sum++;
+								}
 							}
-							if (listOfBooks.get(k).getAuthor().contains(listOfBooks.get(j).getAuthor())) {
-								System.out.println(listOfBooks.get(k).getTitle());
-								sum++;
-							}
+							break;
 						}
-						break;
 					}
-				}
+				} while (sum < 1);
 
 				selection = Validator.getInt(scnr, "\nEnter the number to check out a book: ", 1, listOfBooks.size());
 
